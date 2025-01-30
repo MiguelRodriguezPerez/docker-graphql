@@ -19,13 +19,14 @@ jobs:
         fetch-depth: 0
 
      - name: Docker login
-       env: 
+     - env: 
          DOCKER_USER: ${{ secrets.DOCKER_USER }}
          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-       run:
+     - run:
          echo "Iniciando login"
          docker login -u $DOCKER_USER -P $DOCKER_PASSWORD
          echo "Finalizar login"
     
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    #  Error every step must define a `uses` or `run` key
